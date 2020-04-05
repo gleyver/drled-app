@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <Button
+        android:id="@+id/btn_fonecedor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:text="@string/fornecedor"
+        android:layout_marginTop="20px"
+        />
+
+    <Button
+        android:id="@+id/btn_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:text="@string/usuario"
+        android:layout_marginTop="20px"
+        />
+
+    <Button
+        android:id="@+id/btn_produto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:text="@string/produto"
+        android:layout_marginTop="20px"
+        />
+
+</LinearLayout>
+

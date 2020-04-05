@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Drled</string>
+    <string name="bem_vindo_login">Bem-vindo, Faça seu login</string>
+    <string name="login">Login</string>
+    <string name="configuracoes">Configurações</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="buscar">Buscar</string>
+    <string name="sair">Sair</string>
+    <string name="fornecedor">fornecedor</string>
+    <string name="produto">produto</string>
+    <string name="usuario">usuario</string>
+    <string name="cadastrarUsuario">Cadastrar usuário</string>
+</resources>
