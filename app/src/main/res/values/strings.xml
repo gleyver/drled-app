@@ -11,4 +11,7 @@
     <string name="produto">produto</string>
     <string name="usuario">usuario</string>
     <string name="cadastrarUsuario">Cadastrar usuário</string>
+    <string name="nome_usu_rio">Nome Usuário</string>
+    <string name="nav_open">Abrir</string>
+    <string name="nav_close">Fechar</string>
 </resources>

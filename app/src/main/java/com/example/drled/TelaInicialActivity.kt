@@ -6,9 +6,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_tela_inicial.*
+import kotlinx.android.synthetic.main.toolbar.*
 
-class TelaInicialActivity : AppCompatActivity() {
+class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +39,11 @@ class TelaInicialActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Home"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        configuraMenuLateral()
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // infla o menu com os botões da ActionBar
@@ -60,5 +69,33 @@ class TelaInicialActivity : AppCompatActivity() {
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun configuraMenuLateral () {
+        var toggle = ActionBarDrawerToggle (
+            this,
+            layoutMenuLateral,
+            toolbar,
+            R.string.nav_open,
+            R.string.nav_close)
+        layoutMenuLateral.addDrawerListener(toggle)
+        toggle.syncState()
+
+        menu_lateral.setNavigationItemSelectedListener(this)
+    }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_fornecedor -> {
+                Toast.makeText(this, "Clicou em Fornecedor", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_produto -> {
+            Toast.makeText(this, "Clicou em Produto", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_usuario -> {
+            Toast.makeText(this, "Clicou em Usuario", Toast.LENGTH_SHORT).show()
+        }
+        }
+        layoutMenuLateral.closeDrawer(GravityCompat.START)
+        return true
     }
 }
