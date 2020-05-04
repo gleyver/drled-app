@@ -1,3 +1,4 @@
+
 <resources>
     <!-- Tema com Action Bar. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">

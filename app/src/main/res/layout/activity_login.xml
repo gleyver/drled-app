@@ -4,30 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="30dp"
-    >
+    android:padding="30dp">
 
+
+    <ImageView
+        android:id="@+id/campo_imagem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/texto_login"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/cadastrarUsuario"
-        android:textSize="80px"
-        android:layout_gravity="center"
-        android:paddingBottom="40px"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email" />
-
-    <EditText
-        android:id="@+id/compo_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="@string/bem_vindo_login"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:textSize="18dp"
+        />
 
     <TextView
         android:id="@+id/texto_usuario"
@@ -55,26 +51,11 @@
         android:ems="10"
         android:inputType="textPassword" />
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Confirme sua senha" />
-
-    <EditText
-        android:id="@+id/campo_confirme_senha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword" />
-
-
     <Button
-        android:id="@+id/botao_cadastrar_usuario"
+        android:id="@+id/botao_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gray"
-        android:text="@string/cadastrarUsuario" />
+        android:text="@string/login" />
 
 </LinearLayout>
-

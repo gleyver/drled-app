@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Drled</string>
     <string name="bem_vindo_login">Bem-vindo, Faça seu login</string>
+    <string name="mensagem_login">Faça seu Login</string>
     <string name="login">Login</string>
     <string name="configuracoes">Configurações</string>
     <string name="adicionar">Adicionar</string>
@@ -14,4 +15,12 @@
     <string name="nome_usu_rio">Nome Usuário</string>
     <string name="nav_open">Abrir</string>
     <string name="nav_close">Fechar</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="action_buscar">Buscar</string>
+    <string name="action_atualizar">Atualizar</string>
+    <string name="action_adicionar">Adicionar</string>
+    <string name="action_config">Configurações</string>
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
 </resources>
