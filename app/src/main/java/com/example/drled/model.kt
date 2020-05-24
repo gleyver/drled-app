@@ -1,9 +1,8 @@
 package com.example.drled
 
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
 
-data class Produto (
+data class Produtos (
     @SerializedName("userId")
     var userId : Int,
     @SerializedName("id")

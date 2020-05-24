@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.drled">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -20,12 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".TelaInicialActivity"
-            android:theme="@style/AppTheme.Toolbar" />
-        <activity android:name=".ProdutoActivity"
-            android:theme="@style/AppTheme.Toolbar"
-            android:parentActivityName=".TelaInicialActivity"></activity>
     </application>
 
 </manifest>

@@ -24,7 +24,7 @@ class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tela_inicial)
+        setContentView(R.layout.activity_produto)
 
         // acessar parametros da intnet
         // intent é um atributo herdado de Activity
@@ -61,7 +61,6 @@ class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     }
 
     fun taskProdutos() {
-        this.produtos = ProdutoService.getProduto(context)
         // atualizar lista
         recyclerProdutos?.adapter = ProdutoAdapter(produtos) {onClickProduto(it)}
     }
@@ -69,7 +68,7 @@ class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     // tratamento do evento de clicar em uma produto
     fun onClickProduto(produto: Produto) {
         val intent = Intent(context, ProdutoActivity::class.java)
-        intent.putExtra("produto", produto)
+        /// intent.putExtra("produto", produto)
         startActivity(intent)
     }
 

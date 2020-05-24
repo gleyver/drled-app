@@ -1,9 +1,11 @@
 package com.example.drled
 
 import android.content.Context
+import retrofit2.Call
+import retrofit2.http.GET
 
-object ProdutoService {
-    fun getProduto (context: Context): List<Produto> {
+interface ProdutoService {
+    /* fun getProduto (context: Context): List<Produto> {
         val produtos = mutableListOf<Produto>()
 
         // criar 10 produtos
@@ -15,6 +17,7 @@ object ProdutoService {
         }
 
         return produtos
-    }
-
+    } */
+    @GET("produtos")
+    fun getProdutos(): Call<List<Produto>>
 }
