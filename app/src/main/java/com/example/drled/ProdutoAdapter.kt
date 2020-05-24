@@ -55,23 +55,5 @@ class ProdutoAdapter (
             val produto = produtos[position]
 
             // atualizar dados de produto
-
-            holder.cardNome.text = produto.nome
-            holder.cardProgress.visibility = View.VISIBLE
-
-            // download da imagem
-            Picasso.with(context).load(produto.foto).fit().into(holder.cardImg,
-                object: com.squareup.picasso.Callback{
-                    override fun onSuccess() {
-                        holder.cardProgress.visibility = View.GONE
-                    }
-
-                    override fun onError() {
-                        holder.cardProgress.visibility = View.GONE
-                    }
-                })
-
-            // adiciona evento de clique
-            holder.itemView.setOnClickListener {onClick(produto)}
         }
 }

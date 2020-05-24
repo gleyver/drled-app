@@ -1,13 +1,15 @@
 package com.example.drled
 
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-class Produto : Serializable {
-    var id:Long = 0
-    var nome:String = ""
-    var foto:String = ""
-
-    override fun toString(): String {
-        return "Produto(nome='$nome')"
-    }
-}
+data class Produto (
+    @SerializedName("userId")
+    var userId : Int,
+    @SerializedName("id")
+    var id : Int,
+    @SerializedName("title")
+    var title : String,
+    @SerializedName("body")
+    var body : String
+)

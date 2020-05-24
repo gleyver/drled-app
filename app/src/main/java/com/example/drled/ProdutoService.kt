@@ -1,20 +1,23 @@
 package com.example.drled
 
 import android.content.Context
+import retrofit2.Call
+import retrofit2.http.GET
 
-object ProdutoService {
-    fun getProduto (context: Context): List<Produto> {
+interface ProdutoService {
+    /* fun getProduto (context: Context): List<Produto> {
         val produtos = mutableListOf<Produto>()
 
         // criar 10 produtos
         for (i in 1..10) {
             val d = Produto()
             d.nome = "Produto $i"
-            d.foto = "https://cdn.pixabay.com/photo/2018/01/18/20/42/pencil-3091204_1280.jpg"
+            d.foto = "https://cdn.pixabay.com/photo/2016/11/18/12/01/white-male-1834084_960_720.jpg"
             produtos.add(d)
         }
 
         return produtos
-    }
-
+    } */
+    @GET("produtos")
+    fun getProdutos(): Call<List<Produto>>
 }
