@@ -6,13 +6,6 @@ import android.os.AsyncTask;
 
 import java.util.List;
 
-/**
- * Abstracts access to multiple data sources (here: only one)
- * The Repository is not part of the Architecture Components libraries,
- * but is a suggested best practice for code separation and architecture.
- *
- * @author Mikolaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 public class ProductRepository {
 
     private ProductDao productDao;

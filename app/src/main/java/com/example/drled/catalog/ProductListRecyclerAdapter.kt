@@ -14,11 +14,6 @@ import com.example.drled.detailandedit.ProductDetailActivity
 import com.squareup.picasso.Picasso
 import java.util.*
 
-/**
- * Provides data from list of [Product] to [RecyclerView]
- *
- * @author Mikolaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 class ProductListRecyclerAdapter(val context: Context) : RecyclerView.Adapter<ProductListRecyclerAdapter.ProductViewHolder>() {
 
     companion object {

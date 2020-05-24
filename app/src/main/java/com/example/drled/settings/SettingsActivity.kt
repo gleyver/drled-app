@@ -4,11 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.drled.R
 
-/**
- * Displays Fragment with preferences
- *
- * @author Mikolaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

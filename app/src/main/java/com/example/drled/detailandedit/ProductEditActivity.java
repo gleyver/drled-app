@@ -1,6 +1,7 @@
 package com.example.drled.detailandedit;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationManager;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -30,17 +31,11 @@ import java.util.Locale;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-/**
- * This class allows to edit existing or add a new product
- * <p>
- * Gets data from own {@link ProductViewModel}
- *
- * @author Mikolaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 public class ProductEditActivity extends AppCompatActivity {
     /**
      * Request code that identifies photo request from user
@@ -211,7 +206,18 @@ public class ProductEditActivity extends AppCompatActivity {
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (saveProduct()) {
+                    String message = "Isso é uma notificação";
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                            ProductEditActivity.this
+                    )
+                            .setSmallIcon(R.drawable.ic_message)
+                            .setContentTitle("New Notification")
+                            .setContentText(message)
+                            .setAutoCancel(true)
+                            .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
                     finish();
                 }
             }

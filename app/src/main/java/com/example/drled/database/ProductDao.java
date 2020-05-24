@@ -9,13 +9,6 @@ import androidx.room.Update;
 
 import java.util.List;
 
-/**
- * Interface class for database access
- *
- * Getting LiveData happens on background thread automatically
- *
- * @author Mikolaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 @Dao
 public interface ProductDao {
 

@@ -79,7 +79,7 @@
                 card_view:layout_constraintBottom_toTopOf="@+id/product_detail_price_icon"
                 card_view:layout_constraintStart_toStartOf="@+id/product_detail_name_icon"
                 card_view:layout_constraintTop_toBottomOf="@+id/product_detail_name_icon"
-                card_view:srcCompat="@drawable/product_quantity_icon" />
+                ></ImageView>
 
             <TextView
                 android:id="@+id/product_detail_price"

@@ -7,13 +7,6 @@ import androidx.annotation.NonNull;
 
 import java.util.Date;
 
-/**
- * Data model class for the database
- * <p>
- * Represents single product and products table name
- *
- * @author Mikolaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 @Entity(tableName = "products_table")
 public class Product {
 

@@ -19,13 +19,6 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import java.util.*
 
-/**
- * Shows details about product and help with making order
- *
- * Gets data from own [ProductViewModel]
- *
- * @author Mikolaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 class ProductDetailActivity : AppCompatActivity(), OrderDialogFragment.OrderDialogListener {
 
     /**

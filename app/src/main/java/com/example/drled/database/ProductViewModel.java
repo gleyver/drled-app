@@ -7,11 +7,6 @@ import androidx.annotation.NonNull;
 
 import java.util.List;
 
-/**
- * Provides data to the UI and survive configuration changes
- *
- * @author Mikolaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 public class ProductViewModel extends AndroidViewModel {
 
     private ProductRepository productRepository;

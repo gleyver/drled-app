@@ -13,11 +13,6 @@ import com.jjoe64.graphview.series.BarGraphSeries
 import com.jjoe64.graphview.series.DataPoint
 import kotlinx.android.synthetic.main.fragment_graphs.*
 
-/**
- * Shows graphs with statistics data about products
- *
- * @author Mikołaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 class GraphsFragment : Fragment() {
 
     private var statistics: HashMap<String, Float> = hashMapOf()

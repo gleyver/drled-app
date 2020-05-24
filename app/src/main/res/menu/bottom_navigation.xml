@@ -17,6 +17,13 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/maps_button"
+        android:enabled="true"
+        android:icon="@drawable/statistics_icon"
+        android:title="maps"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/export_button"
         android:enabled="true"
         android:icon="@drawable/export_icon"

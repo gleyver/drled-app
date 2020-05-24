@@ -1,12 +1,5 @@
 package com.example.drled.statistics
 
-/**
- * Helper class containing constants for statistics data transfer between Activities/Fragments
- *
- * For example: Intents
- *
- * @author Mikołaj Ratajczyk <mikolaj.ratajczyk></mikolaj.ratajczyk>@gmail.com>
- */
 object StatisticsContract {
     const val STATISTICS_MAP_NAME = "STATISTICS_MAP"
     const val ITEMS_NUMBER_KEY = "ITEMS_NUMBER"

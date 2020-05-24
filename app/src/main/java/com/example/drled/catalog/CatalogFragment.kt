@@ -14,12 +14,6 @@ import com.example.drled.database.ProductViewModel
 import com.example.drled.detailandedit.ProductEditActivity
 import kotlinx.android.synthetic.main.fragment_catalog.*
 
-/**
- * Loads view with products list
- *
- * Gets data from own [ProductViewModel]
- * @author Mikolaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 class CatalogFragment : Fragment() {
 
     /**

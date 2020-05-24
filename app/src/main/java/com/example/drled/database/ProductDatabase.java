@@ -9,13 +9,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import androidx.annotation.NonNull;
 
-/**
- * Products database abstract class
- * <p>
- * Uses Singleton design pattern
- *
- * @author Mikolaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 @Database(entities = {Product.class}, version = 1, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class ProductDatabase extends RoomDatabase {

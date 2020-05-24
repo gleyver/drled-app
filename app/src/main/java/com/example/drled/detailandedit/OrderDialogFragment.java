@@ -13,12 +13,6 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.drled.R;
 
-
-/**
- * DialogFragment for making order
- *
- * @author Mikolaj Ratajczyk <mikolaj.ratajczyk(AT)gmail.com>
- */
 public class OrderDialogFragment extends DialogFragment {
     /**
      * instance of the interface to deliver action events
