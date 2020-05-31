@@ -1,18 +1,21 @@
 package com.example.drled
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_login.*
+import android.util.Log
+import android.view.View
+import android.widget.*
+import kotlinx.android.synthetic.main.login.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DebugActivity() {
 
     private val context: Context get() = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.login)
         // encontra objeto pelo id
         botao_login.setOnClickListener {onClickLogin() }
     }
@@ -28,10 +31,35 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Usuário ou senha incorretos", Toast.LENGTH_LONG).show()
         }
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1) {
-            val result = data?.getStringExtra("result") //t
+            val result = data?.getStringExtra("result")
+            Toast.makeText(context, "$result", Toast.LENGTH_LONG).show()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // abrir a disciplina caso clique na notificação com o aplicativo fechado
+        abrirProduto()
+        // mostrar no log o tokem do firebase
+        Log.d("firebase", "Firebase Token: ${Prefs.getString("FB_TOKEN")}")
+    }
+
+    fun abrirProduto() {
+        // verificar se existe  id da disciplina na intent
+        if (intent.hasExtra("produtoId")) {
+            Thread {
+                var produtoId = intent.getStringExtra("produtoId")?.toLong()!!
+                val produto = ProdutoService.getProduto(this, produtoId)
+                runOnUiThread {
+                    val intentProduto = Intent(this, ProdutoActivity::class.java)
+                    intentProduto.putExtra("produto", produto)
+                    startActivity(intentProduto)
+                }
+            }.start()
+        }
+
     }
 }

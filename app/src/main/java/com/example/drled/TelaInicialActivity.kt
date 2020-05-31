@@ -3,38 +3,44 @@ package com.example.drled
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.material.navigation.NavigationView
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.ActionBarDrawerToggle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val context: Context get() = this
     private var produtos = listOf<Produto>()
+    private var REQUEST_CADASTRO = 1
+    private var REQUEST_REMOVE= 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_produto)
+        setContentView(R.layout.activity_tela_inicial)
 
         // acessar parametros da intnet
         // intent é um atributo herdado de Activity
         val args:Bundle? = intent.extras
         // recuperar o parâmetro do tipo String
 
-        val nome = args?.getString("nome")
+        //val nome = args?.getString("nome")
 
         // recuperar parâmetro simplificado
-        val numero = intent.getIntExtra("nome",0)
+        //val numero = intent.getIntExtra("nome",0)
+
+        //Toast.makeText(context, "Parâmetro: $nome", Toast.LENGTH_LONG).show()
+        //Toast.makeText(context, "Numero: $numero", Toast.LENGTH_LONG).show()
 
         // colocar toolbar
         setSupportActionBar(toolbar)
@@ -52,24 +58,49 @@ class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         recyclerProdutos?.itemAnimator = DefaultItemAnimator()
         recyclerProdutos?.setHasFixedSize(true)
 
+
     }
 
     override fun onResume() {
         super.onResume()
-        // task para recuperar as produtos
+        // task para recuperar as disciplinas
         taskProdutos()
     }
 
+
     fun taskProdutos() {
-        // atualizar lista
-        recyclerProdutos?.adapter = ProdutoAdapter(produtos) {onClickProduto(it)}
+
+        // Criar a Thread
+        Thread {
+            // Código para procurar as disciplinas
+            // que será executado em segundo plano / Thread separada
+            this.produtos = ProdutoService.getProdutos(context)
+            runOnUiThread {
+                // Código para atualizar a UI com a lista de disciplinas
+                recyclerProdutos?.adapter = ProdutoAdapter(this.produtos) { onClickProduto(it) }
+                // enviar notificação
+                enviaNotificacao(this.produtos.get(0))
+
+            }
+        }.start()
+
     }
 
-    // tratamento do evento de clicar em uma produto
+    fun enviaNotificacao(produto: Produto) {
+        // Intent para abrir tela quando clicar na notificação
+        val intent = Intent(this, ProdutoActivity::class.java)
+        // parâmetros extras
+        intent.putExtra("produto", produto)
+        // Disparar notificação
+        NotificationUtil.create(this, 1, intent, "DrLed", "Você tem nova atividade na ${produto.nome}")
+    }
+
+    // tratamento do evento de clicar em uma disciplina
     fun onClickProduto(produto: Produto) {
+        Toast.makeText(context, "Clicou produto ${produto.nome}", Toast.LENGTH_SHORT).show()
         val intent = Intent(context, ProdutoActivity::class.java)
-        /// intent.putExtra("produto", produto)
-        startActivity(intent)
+        intent.putExtra("produto", produto)
+        startActivityForResult(intent, REQUEST_REMOVE)
     }
 
     // configuraçao do navigation Drawer com a toolbar
@@ -88,7 +119,7 @@ class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     // para tratar os eventos de clique no menu lateral
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_diciplinas -> {
+            R.id.nav_produtos -> {
                 Toast.makeText(this, "Clicou Produtos", Toast.LENGTH_SHORT).show()
             }
 
@@ -101,14 +132,17 @@ class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItem
             }
 
             R.id.nav_localizacao -> {
-                Toast.makeText(this, "Clicou Localização", Toast.LENGTH_SHORT).show()
+                var intent = Intent(this, MapasActivity::class.java)
+                startActivity(intent)
             }
 
             R.id.nav_config -> {
                 Toast.makeText(this, "Clicou Config", Toast.LENGTH_SHORT).show()
             }
-            R.id.nav_sair -> {
-                this.cliqueSair()
+
+            R.id.nav_grafico -> {
+                var intent = Intent(this, GraficoActivity::class.java)
+                startActivity(intent)
             }
         }
 
@@ -156,6 +190,10 @@ class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItem
             Toast.makeText(context, "Botão de atualizar", Toast.LENGTH_LONG).show()
         } else if (id == R.id.action_config) {
             Toast.makeText(context, "Botão de configuracoes", Toast.LENGTH_LONG).show()
+        } else if (id == R.id.action_adicionar) {
+            // iniciar activity de cadastro
+            val intent = Intent(context, ProdutoCadastroActivity::class.java)
+            startActivityForResult(intent, REQUEST_CADASTRO)
         }
         // botão up navigation
         else if (id == android.R.id.home) {
@@ -163,4 +201,13 @@ class TelaInicialActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         }
         return super.onOptionsItemSelected(item)
     }
+    // esperar o retorno do cadastro da disciplina
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_CADASTRO || requestCode == REQUEST_REMOVE ) {
+            // atualizar lista de disciplinas
+            taskProdutos()
+        }
+    }
+
+
 }
