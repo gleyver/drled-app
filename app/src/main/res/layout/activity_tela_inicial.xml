@@ -4,7 +4,8 @@
     android:id="@+id/layoutMenuLateral"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:backgroundTint="#000">
 
     <!--Conteúdo da tela-->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- Colocar cardview com as produtos-->
+            <!-- Colocar cardview com as disciplinas-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerProdutos"
                 android:layout_width="match_parent"
