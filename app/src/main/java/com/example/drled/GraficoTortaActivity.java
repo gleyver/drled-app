@@ -14,7 +14,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraficoActivity extends AppCompatActivity {
+public class GraficoTortaActivity extends AppCompatActivity {
 
     float rainfail[] = {98.8f, 123.8f, 161.6f, 24.2f, 52f, 68.2f, 35.4f, 13.8f, 78.4f, 203.4f, 240.2f, 159.7f};
 
@@ -23,7 +23,7 @@ public class GraficoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grafico);
+        setContentView(R.layout.activity_grafico_torta);
 
         setupPieChar();
     }
@@ -42,4 +42,5 @@ public class GraficoActivity extends AppCompatActivity {
         chart.setData(data);
         chart.invalidate();
     }
+
 }

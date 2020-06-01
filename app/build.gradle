@@ -57,9 +57,15 @@ dependencies {
 
 dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
 }
 
 // Firebase
 apply plugin: 'com.google.gms.google-services'
 
-com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
+com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true 
+
+dependencies {
+  implementation 'androidx.appcompat:appcompat:+'
+  implementation 'androidx.constraintlayout:constraintlayout:+'
+}

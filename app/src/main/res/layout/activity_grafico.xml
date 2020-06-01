@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GraficoActivity"
+    android:orientation="vertical"
     android:padding="20dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:text="% Vendas por Mês"
+        android:text="Graficos"
         android:textSize="24dp"
         android:gravity="center"
         />
 
-    <com.github.mikephil.charting.charts.PieChart
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:id="@+id/chart"
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         />
 
-</RelativeLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_grafico_pizza"
+        android:text="Grafico de pizza"
+        android:backgroundTint="@color/white"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_grafico_torta"
+        android:text="Grafico de torta"
+        android:backgroundTint="@color/white"
+        />
+
+</LinearLayout>
