@@ -18,7 +18,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GraficoActivity"></activity>
+        <activity android:name=".GraficoTortaActivity"
+            android:parentActivityName=".GraficoActivity"
+            />
+        <activity android:name=".GraficoPizzaActivity"
+            android:parentActivityName=".GraficoActivity"/>
         <activity android:name=".MapasActivity" /> <!-- Google play services -->
         <activity
             android:name=".MainActivity"
@@ -38,6 +42,8 @@
             android:parentActivityName=".TelaInicialActivity"
             android:theme="@style/AppTheme.Toolbar" />
         <activity android:name=".ProdutoCadastroActivity" />
+
+        <activity android:name=".GraficoActivity"/>
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
